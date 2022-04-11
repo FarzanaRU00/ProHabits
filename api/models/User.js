@@ -8,18 +8,20 @@ class User {
         this.password_digest = data.password_digest
     }
 
+    // Function to get all users
     static get all() {
         return new Promise(async (resolve, reject) => {
           try {
             const result = await db.query(SQL`SELECT * FROM users;`);
             const users = result.rows.map(r => new User(r));
             resolve(users);
-          } catch (err) {
+          } catch (error) {
             reject(`Could not retrieve users: ${error}`);
           }
         })
     }
 
+    // Function to show all users 
     static find(username){
         return new Promise (async (resolve, reject) => {
             try {
@@ -32,6 +34,7 @@ class User {
         })
     }
 
+    // Function to make a new user
     static create({ username, password }) {
         return new Promise(async (resolve, reject) => {
             try {

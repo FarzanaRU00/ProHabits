@@ -1,5 +1,4 @@
-const Habit = require('../models/Habit');
-
+const {Habit, UserHabit} = require('../models/Habit');
 
 async function index (req, res) {
     try {
@@ -20,7 +19,7 @@ async function show (req, res) {
     }
 };
 
-async function create(req, res) {
+async function create (req, res) {
     try {
         const habits = await Habit.create(req.body)
         res.status(201).json(habits)
@@ -29,5 +28,33 @@ async function create(req, res) {
     }
 };
 
+async function showUserHabit (req, res){
+    try{
+        const userHabit = await UserHabit.showUserHabit(req.params.username)
+        res.status(200).json(userHabit)
+    } catch {err}{
+        res.status(404).send(err)
+    }
+};
 
-module.exports = { index, show, create };
+async function createUserHabit (req, res){
+    try {
+        const userHabit = await UserHabit.createUserHabit(req.params.username);
+        res.status(201).json(userHabit)
+    } catch {err}{
+        res.status(422).send(err)
+    }
+}
+
+async function deleteUserHabit (req, res){
+    try {
+        const userHabit = await UserHabit.deleteUserHabit(req.params.id)
+        res.status(204).json(userHabit)
+    } catch {err}{
+        res.status(404).send(err)
+    }
+}
+
+
+
+module.exports = { index, show, create, showUserHabit, createUserHabit, deleteUserHabit};
