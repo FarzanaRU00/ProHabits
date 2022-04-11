@@ -12,68 +12,57 @@
         <h1 id="title">ProHabits</h1>
         <div class="title-text">
             <div class="title water">Choose your habit <Form></Form></div>
-            <!-- <div class="title sleep">Sleep</div> -->
+            
         </div>
         <div class="form-container">
                
                 <div class="form-inner">
                     <form action="#" class="login">
-                        <div class="field">
-                        
-                                Subjects: <select name="subject" id="subject">
-                                    <option value="" selected="selected">Select a habit</option>
+                                Habit: <select name="subject" id="subject">
+                                    <option value="" selected="selected">Select a new habit</option>
+                                    <option value="water" selected="selected">Water</option>
+                                    <option value="exercise" selected="selected">Exercise</option>
+                                    <option value="sleep" selected="selected">Sleep</option>
                                   </select>
-                        </div>
-                    
                         <div class="field">
-                            <input type="text" placeholder="Measurement" required>
+                            <div class="dropdown">
+                                <span>Measurement</span>
+                                <div class="dropdown-content">
+                                <p>What measurement does your habit take?</p>
+                                </div>
+                              </div>
+                            <input type="text" placeholder="E.g. (water) ml L, (sleep) hours" required>
                         </div>
+                        <br>
                         <div class="field">
                             <div class="dropdown">
                                 <span>Frequency</span>
                                 <div class="dropdown-content">
                                 <p>How long would you like to track for?</p>
                                 </div>
+
                               </div>
                             <input type="number" placeholder="Frequency" required>
                             
                         </div>
                         <div></div>
+                        <br>
                         <div class="field">
                             <input type="submit" value="Save habit">
                         </div>
                 </form>
-                <form action="#" class="signup">
-                    <div class="field">
-                        <input type="text" placeholder="Email Address" required>
-                    </div>
-                    <div class="field">
-                        <input type="password" placeholder="Password" required>
-                    </div>
-                    <div class="field">
-                        <input type="password" placeholder=" Confirm password" required>
-                    </div>
-                    <div class="field">
-                        <input type="submit" value="Create Account">
-                    </div>
-            </form>
-
                 
-                        <div class="field">
-                        </div>
-
-
             </div>
         </div>
     </div>
-    <div class="viewHabits"></div>
-    <ul class="menus">
+    <!-- <div class="viewHabits"></div> -->
+    <!-- <ul class="menus">
         <div class="slider"></div>
         <li><a href="#"><i class="fas fa-plus"></i><span>Add</span></a></li>
         <li><a href="#"><i class="fas fa-search"></i><span>Search</span></a></li>
         <li><a href="#"><i class="fas fa-home"></i><span>Home</span></a></li>
         <li><a href="#"><i class="far fa-user"></i><span>Profile</span></a></li>
         <li><a href="#"><i class="fas fa-cog"></i><span>Log out</span></a></li>
-    </ul>  
+    </ul>   -->
 </body>
 </html>
