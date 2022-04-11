@@ -1,5 +1,10 @@
-const popup = document.getElementById("myPopup");
+const habitObject = ["Water", "Exercise", "Sleep"];
 
-function myFunction() {
-    popup.classList.toggle("show");
-  }
+window.onload = function() {
+  var habitsel = document.getElementById("subject")
+};
+
+habitSel.options[habitSel.options.length] = new Option(x,x);
+  
+
+  
