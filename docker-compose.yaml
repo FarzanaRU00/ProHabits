@@ -1,0 +1,15 @@
+version: '3'
+services:
+  server:
+    image: node:latest
+    working_dir: /server
+    volumes:
+      - type: bind
+        source: ./server
+        target: /server
+  db:
+    image: 'postgres:latest'
+    environment:
+     - POSTGRES_USER=postgres
+    volumes:
+      - "./api/dbConfig:/docker-entrypoint-initdb.d/:ro"
