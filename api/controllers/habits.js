@@ -1,5 +1,6 @@
 const Habit = require('../models/Habit');
 
+// Function to get all habits
 async function index (req, res) {
     try {
         const habits = await Habit.all;
@@ -8,6 +9,8 @@ async function index (req, res) {
         res.status(500).json({ err })
     }
 }
+
+
 
 
 module.exports = { index };
