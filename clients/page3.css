@@ -16,39 +16,6 @@ html,body{
     background: -webkit-linear-gradient(left, #846a6a, #a2999e);
 }
 
-/* #dark-change {
-    position: absolute;
-    width: 45px;
-    height: 22px;
-    right: 20px;
-    top: 20px;
-    border: 2px solid;
-    border-radius: 20px;
-}
-
-#dark-change:before {
-    position: absolute;
-    content: "";
-    width: 20px;
-    height: 20px;
-    left: 1px;
-    top: 1px;
-    border-radius: 50%;
-    cursor: pointer;
-    background: #000;
-    transition: 0.4s;
-}
-
-#dark-change.active:before {
-    left: 24px;
-    background: #fff;
-}
-
-body.night{
-    background: #000;
-    color: #fff;
-} */
-
 #title {
     text-align: center;
     font-family: 'Grape Nuts';
@@ -111,7 +78,7 @@ body.night{
 .slide-controls .slide-tab{
     position: absolute;
     height: 100%;
-    width: 50%;
+    width: 25%;
     left: 0;
     z-index: 0;
     border-radius: 5px;
@@ -127,11 +94,7 @@ input[type="radio"]{
     text-decoration: underline;
 }
 #signup:checked ~ .slide-tab {
-    left: 50%;
-}
-
-#signup:checked ~ .signup {
-    color: #fff;
+    left: 25%;
 }
 
 #signup:checked ~ .login {
@@ -200,4 +163,76 @@ form .field input[type="submit"]{
     border: none;
     cursor: pointer;
     background: -webkit-linear-gradient(left, #846a6a, #a2999e);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
+
+.menus {
+    position: relative;
+    display: flex;
+    /* align-items: bottom; */
+    margin-top: 25%;
+    /* justify-content: center; */
+    background: #202034;
+    border-radius: 0px 0px 20px 20px;
+    padding: 30px 15px 15px;
+    box-shadow: 0px, 8px, 10px, rgb(26,26,26,0.19);
+}
+
+.menus li {
+    list-style: none;
+}
+
+.menus li a {
+    width: 75px;
+    height: 45px;
+    color: #846a6a;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: none;
+    display: block;
+    transition: 1s;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.menus li a i {
+    width: 100%;
+    position: absolute;
+    top: 23%;
+    left: 0px;
+    transition-delay: .3s;
+    z-index: 9;
+}
+
+
+.menus li a span {
+    display: block;
+    font-size: 12px;
+    width: 100%;
+    position: absolute;
+    bottom: -16px;
+    transition-delay: .3s;
+    transition: 1s;
+    z-index: 9;
+    opacity: 0;
 }
