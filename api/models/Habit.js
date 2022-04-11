@@ -50,13 +50,29 @@ class Habit {
 
 }
 
-class UsersHabit extends Habit{
+class UserHabit extends Habit{
     constructor(data){
         super(data);
         // Super enables us to call on the static methods in habit
         this.measurement = data.measurement
         this.frequency = data.frequency
     }
+
+    static getUserHabit(username){
+        return new Promise(async (resolve, reject) => {
+            try {
+                const result = await db.query(SQL`SELECT users.username, users_habits.id AS id, users.id AS users_id, habits.id AS habits_id, habits.name AS    habits_name, to_char(user_habits.created, 'MM-DD-YYYY') as created user_habits.measurements, user_habits.frequency FROM user_habits 
+                                                        JOIN habits on user_habits.habit_id  = habits.id 
+                                                        JOIN users on users_habits.user_id = users.id 
+                                                        WHERE users.username = ${username};`);
+                const habits = result.rows.map(h => ({id: h.id, users_id: h.users_id,  habits_id: h.habits_id, habits_name: h.habits_name, created: h.created, measurements: h.measurements, frequency: h.frequency}));
+                resolve(habits);
+            } catch (error){
+                reject(`Could not find habit: ${error}`)
+            }
+        })
+    }
+
 
     static createUserHabit(data, username){
         return new Promise(async (resolve, reject) => {
@@ -75,12 +91,14 @@ class UsersHabit extends Habit{
         return new Promise(async (resolve, reject) => {
             try{
                 const result = await db.query(SQL`DELETE FROM user_habits WHERE id = ${id};`)
-                resolve(result.rows > 0 ? "deleted successfully" : "could not delete")
+                resolve(result.rowCount > 0 ? "deleted successfully" : "could not delete")
             } catch (error){
                 reject(`Could not delete habit: ${error}`)
             }
         })
     }
+
+
 }
 
 
@@ -97,7 +115,7 @@ class UsersHabit extends Habit{
 
 
 
-module.exports = {Habit, UsersHabit};
+module.exports = {Habit, UserHabit};
 
 
 // class Habit {
