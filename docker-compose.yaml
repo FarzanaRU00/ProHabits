@@ -1,15 +1,16 @@
 version: '3'
 services:
-  server:
+  api:
     image: node:latest
-    working_dir: /server
+    working_dir: /api
     volumes:
       - type: bind
-        source: ./server
-        target: /server
+        source: ./api
+        target: /code
+
   db:
-    image: 'postgres:latest'
-    environment:
-     - POSTGRES_USER=postgres
+    image: postgres:latest
+    environment: 
+      - POSTGRES_USER=cohabit
     volumes:
       - "./api/dbConfig:/docker-entrypoint-initdb.d/:ro"
