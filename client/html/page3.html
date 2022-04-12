@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="page3.css">
+    <link rel="stylesheet" href="../css/page3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <script defer src="page3.js"></script>
-    <!-- <script defer src="layout.js"></script> -->
+    <script defer src="../js/layout.js"></script>
+    <script defer src="../js/requests.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -19,14 +19,15 @@
         <div class="form-container">
                
                 <div class="form-inner">
-                    <form action="#" class="login">
-                        <br>
+                    <form class="login">
+                
                                 Habit: <select name="subject" id="subject">
                                     <option value="" selected="selected">Select a new habit</option>
                                     <option value="water" selected="selected">Water</option>
                                     <option value="exercise" selected="selected">Exercise</option>
                                     <option value="sleep" selected="selected">Sleep</option>
                                   </select>
+                                  <br>
                         <div class="field">
                             <div class="dropdown">
                                 <span>Measurement</span>
@@ -45,7 +46,7 @@
                                 </div>
 
                               </div>
-                            <input type="number" placeholder="Frequency" required>
+                            <input type="number" placeholder="E.g. 1, 28" required>
                             
                         </div>
                         <div></div>
@@ -54,6 +55,14 @@
                             <input type="submit" value="Save habit">
                         </div>
                 </form>
+                <div class="habits">
+                    <ul class="habit-list">
+                        <li>Loading...</li>
+
+                    </ul>
+
+                </div>
+
             </div>
         
        <div class="nav-body">
@@ -61,8 +70,8 @@
         <div class="slider"></div>
         <li><a href="page3.html"><i class="fas fa-plus"></i><span>Add</span></a></li>
         <li><a href="viewAll.html"><i class="fas fa-home"></i><span>Home</span></a></li>
-        <li><a href="#"><i class="far fa-user"></i><span>Profile</span></a></li>
-        <li><a href="index.html"><i class="fas fa-cog"></i><span>Log out</span></a></li>
+        <li><a href="#"><i class="fas fa-cog"></i><span>Profile</span></a></li>
+        <li><a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Log out</span></a></li>
     </ul>  
     </div>
    </div> 

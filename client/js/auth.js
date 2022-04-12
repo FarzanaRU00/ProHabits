@@ -7,12 +7,15 @@ async function requestLogin(e){
             body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
         }
         const r = await fetch(`http://localhost:3000/auth/login`, options)
-        const data = await r.json()
-        if (data.err){ throw Error(data.err); }
-        login(data);
-    } catch (err) {
-        console.warn(`Error: ${err}`);
+        const data = await r.json();
+    if (!data.success) {
+      throw new Error("Login not authorised");
     }
+    login(data.token);
+  } catch (err) {
+    console.warn(err);
+  }
+
 }
 
 async function requestRegistration(e) {
