@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <script defer src="index.js"></script>
+    <script defer src="auth.js"></script>
+    <script defer src="content.js"></script>
     <title> ProHabits </title>
 </head>
 <body>
@@ -24,22 +26,25 @@
                    <div class="slide-tab"></div>  
                 </div>
                 <div class="form-inner">
-                    <form action="#" class="login">
+                    <form class="login">
                         <div class="field">
-                            <input type="text" placeholder="Email Address" required>
+                            <input type="text" placeholder="Username" required>
                         </div>
                         <div class="field">
                             <input type="password" placeholder="Password" required>
                         </div>
                         <div class="pass-link"><a href="#">Forgot Password</a></div>
                         <div class="field">
-                            <input type="submit" placeholder="Login">
+                            <input type="submit" value="Login">
                         </div>
                         <div class="signup-link">Not a member? <a  id="create-link"href="#">Create account</a></div>
                 </form>
                 <form action="#" class="signup">
                     <div class="field">
                         <input type="text" placeholder="Email Address" required>
+                    </div>
+                    <div class="field">
+                        <input type="text" placeholder="Username" required>
                     </div>
                     <div class="field">
                         <input type="password" placeholder="Password" required>
