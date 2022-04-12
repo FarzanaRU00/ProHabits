@@ -39,7 +39,8 @@ async function showUserHabit (req, res){
 
 async function createUserHabit (req, res){
     try {
-        const userHabit = await UserHabit.createUserHabit(req.params.username);
+        const jsDate = new Date().toLocaleString('en-GB', {timeZone: 'Europe/London'})
+        const userHabit = await UserHabit.createUserHabit({...req.body, date:jsDate}, req.params.username);
         res.status(201).json(userHabit)
     } catch {err}{
         res.status(422).send(err)

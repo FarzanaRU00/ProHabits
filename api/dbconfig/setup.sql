@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
-    id serial PRIMARY KEY
+    id serial PRIMARY KEY,
     username VARCHAR (255) UNIQUE NOT NULL,
     password_digest VARCHAR (255) NOT NULL
 );
@@ -8,7 +8,7 @@ CREATE TABLE users (
 DROP TABLE IF EXISTS habits;
 CREATE TABLE habits(
     id serial PRIMARY KEY,
-    name VARCHAR (255) NOT NULL;
+    name VARCHAR (255) NOT NULL
 );
 
 DROP TABLE IF EXISTS user_habits;

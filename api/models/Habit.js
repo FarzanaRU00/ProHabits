@@ -61,7 +61,7 @@ class UserHabit extends Habit{
     static getUserHabit(username){
         return new Promise(async (resolve, reject) => {
             try {
-                const result = await db.query(SQL`SELECT users.username, users_habits.id AS id, users.id AS users_id, habits.id AS habits_id, habits.name AS    habits_name, to_char(user_habits.created, 'MM-DD-YYYY') as created user_habits.measurements, user_habits.frequency FROM user_habits 
+                const result = await db.query(SQL`SELECT users.username, users_habits.id AS id, users.id AS users_id, habits.id AS habits_id, habits.name AS    habits_name, to_char(user_habits.created, 'DD-MM-YYYY') as created user_habits.measurements, user_habits.frequency FROM user_habits 
                                                         JOIN habits on user_habits.habit_id  = habits.id 
                                                         JOIN users on users_habits.user_id = users.id 
                                                         WHERE users.username = ${username};`);
@@ -98,6 +98,7 @@ class UserHabit extends Habit{
         })
     }
 
+    
 
 }
 
