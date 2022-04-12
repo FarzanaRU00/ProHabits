@@ -1,16 +1,33 @@
-version: '3'
+version: "3"
 services:
   api:
     image: node:latest
-    working_dir: /api
+    working_dir: /code
+    ports:
+      - 3000:3000
+    environment:
+      - PGUSER=habitUser
+      - PGHOST=db
+      - PGPASSWORD=password
+      - PGDATABASE=db
+      - PGPORT=5432
+    depends_on:
+      - db
     volumes:
       - type: bind
         source: ./api
         target: /code
-
+    command: bash -c "npm install && npm run dev"
   db:
     image: postgres:latest
-    environment: 
-      - POSTGRES_USER=cohabit
+    environment:
+      - POSTGRES_DB=db
+      - POSTGRES_USER=habitUser
+      - POSTGRES_PASSWORD=password
     volumes:
+      - "dbdata:/var/lib/postgresql/data"
       - "./api/dbConfig:/docker-entrypoint-initdb.d/:ro"
+volumes:
+  dbdata:
+
+
