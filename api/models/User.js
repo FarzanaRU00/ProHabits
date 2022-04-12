@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 const db = require('../dbConfig/init');
 const SQL = require('sql-template-strings');
 
