@@ -17,6 +17,18 @@ describe('index.html', () => {
     })
 });
 
+describe('index.html', () => {
+    beforeEach(() => {
+        document.documentElement.innerHTML = html.toString();
+    })
+    test('it has a title of ProHabits', () => {
+        let title = document.querySelector('title');
+        expect(title.textContent).toContain('ProHabits');
+    })
+});
+
+
+
 // describe('index.html' () => {
 //     beforeEach(() => {
 //         document.documentElement.innerHTML = html.toString();
