@@ -56,6 +56,7 @@ class UserHabit extends Habit{
         // Super enables us to call on the static methods in habit
         this.measurement = data.measurement
         this.frequency = data.frequency
+        this.finished = data.finished
     }
 
     static getUserHabit(username){
@@ -98,11 +99,36 @@ class UserHabit extends Habit{
         })
     }
 
+<<<<<<< HEAD
     
+=======
+    static updateHabit(data){
+        return new Promise(async (resolve, reject) => {
+            try {
+                const result = await db.query(SQL `SELECT `)
+            } catch (error) {
+                
+            }
+        })
+    }
+
+
+    // static createHabitCounter(data){
+    //     return new Promise(async (resolve, reject) => {
+    //         try{
+    //             const habitTracker = await db.query(SQL`SELECT frequency FROM user_habit WHERE id = ${id} user_habit_id;`)
+    //             const result = await db.query(SQL `INSERT INTO habit_counter (user_habit_id, finished, finished_at) VALUES(${data.user_habit_id}, ${data.finished}, ${data.finished_at}) RETURNING *`)
+    //             const newHabitTracker = result.row[0]
+    //             resolve(newHabitTracker)
+    //         } catch(error) {
+    //             reject(`Could not create a habit counter: ${error}`)
+    //         }
+    //     })
+    // }
+
+>>>>>>> d81534c81a3251069995ec216870f75ceacdb817
 
 }
-
-
 
 
 

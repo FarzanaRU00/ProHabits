@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 const Habit = require('../../../models/Habit')
 const pg = require('pg');
 jest.mock('pg');

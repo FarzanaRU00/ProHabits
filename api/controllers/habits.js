@@ -32,7 +32,7 @@ async function showUserHabit (req, res){
     try{
         const userHabit = await UserHabit.showUserHabit(req.params.username)
         res.status(200).json(userHabit)
-    } catch {err}{
+    } catch (err){
         res.status(404).send(err)
     }
 };
@@ -42,7 +42,7 @@ async function createUserHabit (req, res){
         const jsDate = new Date().toLocaleString('en-GB', {timeZone: 'Europe/London'})
         const userHabit = await UserHabit.createUserHabit({...req.body, date:jsDate}, req.params.username);
         res.status(201).json(userHabit)
-    } catch {err}{
+    } catch (err){
         res.status(422).send(err)
     }
 }
@@ -51,11 +51,31 @@ async function deleteUserHabit (req, res){
     try {
         const userHabit = await UserHabit.deleteUserHabit(req.params.id)
         res.status(204).json(userHabit)
-    } catch {err}{
+    } catch (err){
         res.status(404).send(err)
     }
 }
 
+async function updateHabit (req, res){
+    try {
+        const habit = await UserHabit.updateHabit(req.params.user_habit_id);
+        // habit.updateHabit(req.body);
+        res.status(200).json();
+      } catch (err) {
+        res.status(404).json({ err });
+      }
+    }
 
 
-module.exports = { index, show, create, showUserHabit, createUserHabit, deleteUserHabit};
+// async function createHabitCounter (req, res){
+//     try {
+//         const userHabit = await UserHabit.createHabitCounter(req.body)
+//         res.status(201).json(userHabit)
+//     } catch(err){
+//         res.status(422).send(err)
+//     }
+// }
+
+
+
+module.exports = { index, show, create, showUserHabit, createUserHabit, deleteUserHabit, updateHabit};
