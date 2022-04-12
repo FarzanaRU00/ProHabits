@@ -28,5 +28,3 @@ signupLink.onclick = (() => {
     signupBtn.click();
     return false;
 })
-
-module.exports = { index }
