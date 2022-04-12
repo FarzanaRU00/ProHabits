@@ -39,7 +39,8 @@ async function showUserHabit (req, res){
 
 async function createUserHabit (req, res){
     try {
-        const userHabit = await UserHabit.createUserHabit(req.params.username);
+        const jsDate = new Date().toLocaleString('en-GB', {timeZone: 'Europe/London'})
+        const userHabit = await UserHabit.createUserHabit({...req.body, date:jsDate}, req.params.username);
         res.status(201).json(userHabit)
     } catch (err){
         res.status(422).send(err)
@@ -66,15 +67,16 @@ async function updateHabit (req, res){
     }
 
 
-// async function createHabitCounter (req, res){
-//     try {
-//         const userHabit = await UserHabit.createHabitCounter(req.body)
-//         res.status(201).json(userHabit)
-//     } catch(err){
-//         res.status(422).send(err)
-//     }
-// }
+async function createHabitCounter (req, res){
+    try {
+        const jsDate = new Date().toLocaleString('en-GB', {timeZone: 'Europe/London'})
+        const habitTracker = await UserHabit.createHabitEntry({ ...req.body, date: jsDate});
+        res.status(201).json(habitTracker)
+    } catch(err){
+        res.status(422).send(err)
+    }
+}
 
 
 
-module.exports = { index, show, create, showUserHabit, createUserHabit, deleteUserHabit, updateHabit};
+module.exports = { index, show, create, showUserHabit, createUserHabit, deleteUserHabit, createHabitCounter, updateHabit};
