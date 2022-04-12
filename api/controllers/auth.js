@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../models/User');
 
+
 async function register (req, res) {
     try {
         const salt = await bcrypt.genSalt();
@@ -14,6 +15,7 @@ async function register (req, res) {
         res.status(500).json({err});
     }
 }
+
 
 async function login (req, res) {
     try {
