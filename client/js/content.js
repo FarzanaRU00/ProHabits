@@ -18,7 +18,7 @@ function renderLoginForm() {
 
 function renderRegisterForm(){
     const authFields = [
-        { tag: 'input', attributes: {id: 'username', name: 'username', placeholder: 'Enter your username' } },
+        { tag: 'input', attributes: {id: 'username', name: 'username', placeholder: 'Username' } },
         { tag: 'input', attributes: {id: 'password', type: "password", name: 'password', placeholder: 'Enter your password' } },
         { tag: 'input', attributes: {id: 'password', type: "password", name: 'passwordConfirmation', placeholder: 'Confirm Password' } },
         { tag: 'input', attributes: {id: 'register-submit', type: "submit", name: "register-submit" ,value: 'Create Account' } }
