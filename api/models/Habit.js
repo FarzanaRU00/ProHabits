@@ -58,7 +58,7 @@ class UserHabit extends Habit{
         this.frequency = data.frequency
     }
 
-    static getUserHabit(username){
+    static showUserHabit(username){
         return new Promise(async (resolve, reject) => {
             try {
                 const result = await db.query(SQL`SELECT users.username, users_habits.id AS id, users.id AS users_id, habits.id AS habits_id, habits.name AS    habits_name, to_char(user_habits.created, 'DD-MM-YYYY') as created user_habits.measurements, user_habits.frequency FROM user_habits 
