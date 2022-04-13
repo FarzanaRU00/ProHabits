@@ -13,7 +13,7 @@ async function getAllHabits (req, res) {
 // show habits by id
 async function showHabit (req, res) {
     try {
-        const habits = await Habit.find(req.params.habit_id);
+        const habits = await Habit.findHabitById(req.params.habit_id);
         res.status(200).json({habits})
     } catch (error) {
         res.status(404).send({error});

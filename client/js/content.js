@@ -88,7 +88,6 @@ async function renderFeed() {
                             <div class="dropdown-content">
                             <p>How long would you like to track for?</p>
                             </div>
-
                           </div>
                         <input type="number" placeholder="E.g. 1, 28" required>
                         
@@ -102,11 +101,8 @@ async function renderFeed() {
             <div class="habits">
                 <ul class="habit-list">
                     <li>Loading...</li>
-
                 </ul>
-
             </div>
-
         </div>
     
    <div class="nav-body">
@@ -151,5 +147,3 @@ function render404() {
     error.textContent = "Oops, we can't find that page sorry!";
     main.appendChild(error);
 }
-
-

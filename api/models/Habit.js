@@ -40,7 +40,7 @@ class Habit {
     }
 
 // Function to create a new habit
-    static create({name, measurement, frequency, username}){
+    static createHabit({name, measurement, frequency, username}){
         return new Promise(async (resolve, reject) => {
             try{
                 const userData = await db.query(`SELECT id FROM users WHERE username = $1;`, [username])
