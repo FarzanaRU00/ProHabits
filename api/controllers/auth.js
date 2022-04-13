@@ -18,15 +18,21 @@ async function register (req, res) {
 async function login (req, res) {
     try {
         const user = await User.findByUsername(req.body.username)
-        if(!user){ throw new Error('No user with this username') }
+        if(!user){ 
+            throw new Error('No user with this username') 
+        };
         const authed = bcrypt.compare(req.body.password, user.passwordDigest)
         if (!!authed){
-            const payload = { username: user.username, id : user.id }
+            const payload = { 
+                username: user.username, 
+                id: user.id 
+            };
             const sendToken = (err, token) => {
-                if(err){ throw new Error('Error in token generation') }
+                if(err)
+                {throw new Error('Error in token generation') }
                 res.status(200).json({
                     success: true,
-                    token:  token,
+                    token: `Bearer ${token}`
                 });
             }
             jwt.sign(payload, process.env.SECRET, { expiresIn: 60 }, sendToken);
