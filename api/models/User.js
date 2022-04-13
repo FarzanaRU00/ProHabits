@@ -24,7 +24,7 @@ class User {
           }
         })
     }
-
+    
     // Function to show all users 
     static find(username){
         return new Promise (async (resolve, reject) => {
