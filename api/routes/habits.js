@@ -4,7 +4,7 @@ const habitsController = require('../controllers/habits')
 
 
 router.get('/', habitsController.getAllHabits)
-router.get('/:id', habitsController.showHabit)
+router.get('/:habit_id', habitsController.showHabit)
 router.post('/', habitsController.createHabit)
 
 
