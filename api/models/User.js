@@ -29,7 +29,7 @@ class User {
     static find(username){
         return new Promise (async (resolve, reject) => {
             try {
-                const result = db.query(SQL `SELECT * FROM users WHERE username = ${username};`);
+                let result = db.query(SQL `SELECT * FROM users WHERE username = ${username};`);
                 const user = new User(result.rows[0]);
                 resolve(user);
             } catch (error){
@@ -42,9 +42,12 @@ class User {
     static create({ username, password }) {
         return new Promise(async (resolve, reject) => {
             try {
-                const result = await db.query(SQL`INSERT INTO users (username, password_digest) VALUES (${username},${password}) RETURNING *;`)
-                if(!result.rows[0]) throw new Error("Username Already Exists")
-                const user = new User(result.rows[0]);
+                console.log(username, password)
+                let userData = await db.query(`INSERT INTO users (username, password_digest) VALUES ($1,$2) RETURNING *;`, [username, password])
+                // if(!result.rows[0]) throw new Error("Username Already Exists")
+                console.log('working 3')
+                console.log(userData.rows[0])
+                const user = new User(userData.rows[0]);
                 resolve(user);
             } catch (error) {
                 reject(`Could not create user: ${error}`);

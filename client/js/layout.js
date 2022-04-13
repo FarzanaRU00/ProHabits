@@ -1,67 +1,66 @@
-const form = document.querySelector(".form");
-const hiddenPost = document.querySelector(".post-hide");
-const inputForm = document.querySelector(".login");
+// const nav = document.querySelector('nav');
+const body = document.querySelector('body');
 
-let id;
-inputForm.addEventListener("submit", createPost);
+// const publicRoutes = ['#', '#login', '#register'];
+const privateRoutes = ['#feed', '#addhabit'];
 
-async function createPost(e) {
-  e.preventDefault();
-  try {
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        measurement: e.target.measurement.value,
-        frequency: e.target.frequency.value
-      }),
-    };
-    const response = await fetch(`http://localhost:3000/`, options);
-    const post = await response.json();
-    id = post.id;
-    window.location.hash = `#${post.id}`; //Look up
-  } catch (err) {
-    console.log(err);
-  }
+window.addEventListener('hashchange', updateContent);
+
+// function updateNav(){
+//     nav.innerHTML = '';
+//     let links;
+//     let logoutBtn;
+//     if (currentUser()){
+//         links = privateRoutes.map(createNavLink);
+//         logoutBtn = document.createElement('button');
+//         logoutBtn.textContent = 'Logout';
+//         logoutBtn.onclick = logout;
+//         nav.appendChild(logoutBtn);
+//     } else {
+//         links = publicRoutes.map(createNavLink);
+//     }
+//     links.forEach(l => nav.insertBefore(l, logoutBtn))
+// }
+
+function updateMain(path) {
+    body.innerHTML = '';
+    if (path) {
+        switch(path){
+            // case '#login':
+            //     renderLoginForm(); break;
+            // case '#register':
+            //     renderRegisterForm(); break;
+            case '#feed':
+                renderFeed(); break;
+            case '#addhabit':
+                renderProfile(); break;
+            default:
+                render404(); break;
+        }
+    } else {
+        renderHomepage();
+    }
 }
 
-window.addEventListener("hashchange", update);
-window.addEventListener("load", update);
+// function createNavLink(route){
+//     const link = document.createElement('a');
+//     link.textContent = route === '#' ? 'Home' : `${route[1].toUpperCase()}${route.substring(2)}`;
+//     link.href = route;
+//     return link;
+// }
 
-async function update() {
-  //   let hash = window.location.substring(1);
-  if (id) {
-    let postData = await getPost(id);
-    console.log(postData);
-    showPost(postData);
-  } else {
-    document.querySelector(".post-habit").textContent = "";
-    document.querySelector(".post-frequency").textContent = "";
-    document.querySelector(".post-measurement").textContent = "";
-    form.classList.remove("hidden");
-    hiddenPost.classList.add("hidden");
-  }
+function updateContent(){
+    const path = window.location.hash;
+    console.log(path)
+    if (privateRoutes.includes(path) && !currentUser()){
+        console.log('if called')
+        window.location = 'index.html';
+    } else {
+        // updateNav();
+        console.log('else called')
+        updateMain(path);
+    }
 }
 
-async function getPost(id) {
-  try {
-    const response = await fetch(`http://localhost:3000/${id}`);
-    const postData = await response.json();
-    return postData;
-  } catch (err) {
-    console.log(err);
-  }
-}
+// updateContent();
 
-function showPost(postData) {
-  console.log(typeof postData);
-  form.classList.add("hidden");
-  hiddenPost.classList.remove("hidden");
-  if (typeof postData !== "undefined") {
-    document.querySelector(".post-habit").textContent = postData.title;
-    document.querySelector(".post-frequency").textContent = postData.pseudonym;
-    document.querySelector(".post-measurement").textContent = postData.body;
-  } else {
-    document.querySelector(".post-habit").textContent = "Post does not exist";
-  }
-}
