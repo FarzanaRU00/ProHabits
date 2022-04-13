@@ -1,126 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/index.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
-    <title>ProHabits</title>
-  </head>
-  <body>
-    <nav></nav>
-    <main>
-      <div class="wrapper">
-        <h1 id="title">ProHabits</h1>
-        <div class="title-text">
-          <div class="title login">
-            Login
-            <form></form>
-          </div>
-          <div class="title signup">Signup</div>
-        </div>
-        <div class="form-container">
-          <div class="slide-controls">
-            <input type="radio" name="slider" id="login" checked />
-            <input type="radio" name="slider" id="signup" />
-            <label for="login" class="slide login">Login</label>
-            <label for="signup" class="slide signup">Sign Up</label>
-            <div class="slide-tab"></div>
-          </div>
-          <div class="form-inner">
-            <form class="loginForm login">
-              <div class="field">
-                <input
-                  name="username"
-                  type="text"
-                  placeholder="Username"
-                  required
-                />
-              </div>
-              <div class="field">
-                <input
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                  required
-                />
-              </div>
-              <div class="pass-link"><a href="#">Forgot Password</a></div>
-              <div class="field">
-                <input type="submit" value="Login" />
-              </div>
-              <div class="signup-link">
-                Not a member? <a id="create-link" href="#">Create account</a>
-              </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>ProHabits</title>
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="../css/index.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+            <title> ProHabits </title>
+        </head>
+        <body>
+            <nav></nav>
+            <main>
+                <div class="wrapper">
+                    <h1 id="title">ProHabits</h1>
+                    <div class="title-text">
+                      <div class="title login">
+                        Login
+                        <form></form>
+                      </div>
+                      <div class="title signup">Signup</div>
+                    </div>
+                    <div class="form-container">
+                        
+            </div>
+          </form>
+          <div class="form-container">
+            <div class="slide-controls">
+                <input type="radio" name="slider" id="login" checked>
+                <input type="radio" name="slider" id="signup">
+               <label for="login" class="slide login">Login</label>
+               <label for="signup" class="slide signup">Sign Up</label>
+               <div class="slide-tab"></div>  
+            </div>
+            <div class="form-inner">
+                <form class="loginForm login">
+                    <div class="field">
+                        <input name="username" type="text" placeholder="Username" required>
+                    </div>
+                    <div class="field">
+                        <input name="password" type="password" placeholder="Password" required>
+                    </div>
+                    <div class="pass-link"><a href="#">Forgot Password</a></div>
+                    <div class="field">
+                        <input type="submit" value="Login">
+                    </div>
+                    <div class="signup-link">Not a member? <a  id="create-link"href="#">Create account</a></div>
             </form>
             <form class="signup signupForm">
-              <div class="field">
-                <input
-                  name="username"
-                  type="text"
-                  placeholder="Username"
-                  required
-                />
-              </div>
-              <div class="field">
-                <input type="text" placeholder="Email" required />
-              </div>
-              <div class="field">
-                <input
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                  required
-                />
-              </div>
-              <div class="field">
-                <input
-                  type="password"
-                  placeholder=" Confirm password"
-                  required
-                />
-              </div>
-              <div class="field">
-                <input type="submit" value="Create Account" />
-              </div>
-            </form>
-          </div>
-          <div class="nav-body">
-            <ul class="menus">
-              <div class="slider"></div>
-              <li>
-                <a href="form.html"
-                  ><i class="fas fa-plus"></i><span>Add</span></a
-                >
-              </li>
-              <li>
-                <a href="viewAll.html"
-                  ><i class="fas fa-home"></i><span>Home</span></a
-                >
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-cog"></i><span>Profile</span></a>
-              </li>
-              <li>
-                <a href="index.html"
-                  ><i class="fa-solid fa-arrow-right-from-bracket"></i
-                  ><span>Log out</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </main>
+                <div class="field">
+                    <input name="username" type="text" placeholder="Username" required>
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="Email" required>
+                </div>
+                <div class="field">
+                    <input name="password" type="password" placeholder="Password" required>
+                </div>
+                <div class="field">
+                    <input type="password" placeholder=" Confirm password" required>
+                </div>
+                <div class="field">
+                    <input type="submit" value="Create Account">
+                </div>
+        </form>
 
-    <script src="../js/auth.js"></script>
-    <script src="../js/requests.js"></script>
-    <script src="../js/index.js"></script>
-    <script src="../js/layout.js"></script>
-    <script src="../js/content.js"></script>
-  </body>
+        </div>
+        <div class="nav-body">
+            <ul class="menus">
+                <div class="slider"></div>
+                <li><a href="form.html"><i class="fas fa-plus"></i><span>Add</span></a></li>
+                <li><a href="viewAll.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+                <li><a href="#"><i class="fas fa-cog"></i><span>Profile</span></a></li>
+                <li><a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Log out</span></a></li>
+            </ul>  
+            </div>
+        </div>
+    </div>
+  </div>
+</main>
+
+<script src='../js/auth.js'></script>
+<script src='../js/requests.js'></script>
+<script src='../js/index.js'></script>
+<script src='../js/layout.js'></script>
+<script src='../js/content.js'></script>
+</body>
 </html>
+

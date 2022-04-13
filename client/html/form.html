@@ -20,30 +20,62 @@
           Choose your habit
           <form></form>
         </div>
-      </div>
-      <div class="form-container">
-        <div class="form-inner">
-          <form class="login">
-            Habit:
-            <select name="subject" id="subject">
-              <option value="" selected="selected">Select a new habit</option>
-              <option value="water" selected="selected">Water</option>
-              <option value="exercise" selected="selected">Exercise</option>
-              <option value="sleep" selected="selected">Sleep</option>
-            </select>
-            <br />
-            <div class="field">
-              <div class="dropdown">
-                <span>Measurement</span>
-                <div class="dropdown-content">
-                  <p>What measurement does your habit take?</p>
-                </div>
-              </div>
-              <input
-                type="text"
-                placeholder="E.g. (water) ml L, (sleep) hours"
-                required
-              />
+        <div class="form-container">
+               
+                <div class="form-inner">
+                    <form class="login">
+                        <div class="field">
+                            <div class="dropdown">
+                                <span>Habit:</span>
+                                <div class="dropdown-content">
+                                <p>What habit would you like to track?</p>
+                                </div>
+                              </div>
+                            <input name="habit" class="habit" type="text" placeholder="E.g. water, sleep, exercise" required>
+                        </div>
+                
+                                <!-- Habit: <select name="subject" id="subject">
+                                    <option value="" selected="selected">Select a new habit</option>
+                                    <option value="water" selected="selected">Water</option>
+                                    <option value="exercise" selected="selected">Exercise</option>
+                                    <option value="sleep" selected="selected">Sleep</option>
+                                  </select> -->
+                                  <br>
+                        <div class="field">
+                            <div class="dropdown">
+                                <span>Measurement</span>
+                                <div class="dropdown-content">
+                                <p>What measurement does your habit take?</p>
+                                </div>
+                              </div>
+                            <input name="measurement" class="measurement" type="text" placeholder="E.g. (water) ml L, (sleep) hours" required>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="dropdown">
+                                <span>Frequency</span>
+                                <div class="dropdown-content">
+                                <p>How long would you like to track for?</p>
+                                </div>
+
+                              </div>
+                            <input name="time-frame" class="time-frame"type="number" placeholder="E.g. 1, 28" required>
+                            
+                        </div>
+                        <div></div>
+                        <br>
+                        <div class="field">
+                            <input type="submit" value="Save habit">
+                        </div>
+                        <div class="habits">
+                            <ul class="habit-list">
+                                <li>No new habits saved...</li>
+        
+                            </ul>
+        
+                        </div>
+                </form>
+               
             </div>
             <br />
             <div class="field">
