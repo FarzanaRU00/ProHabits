@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <script defer src="../js/layout.js"></script>
-    <script defer src="../js/requests.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -19,7 +17,7 @@
         <div class="form-container">
                
                 <div class="form-inner">
-                    <form class="login">
+                    <form class="login habitForm">
                         <div class="field">
                             <div class="dropdown">
                                 <span>Habit:</span>
@@ -63,13 +61,13 @@
                         <div class="field">
                             <input type="submit" value="Save habit">
                         </div>
-                        <div class="habits">
-                            <ul class="habit-list">
-                                <li>No new habits saved...</li>
-        
-                            </ul>
-        
-                        </div>
+                        
+                            <section class="main-grid post-hide hidden">
+                                <h1 class="post-name"></h1>
+                                <h3 class="post-measurement"></h3>
+                                <p class="post-frequency"></p>
+                                <button class="back">Go Back</button>
+                            </section>
                 </form>
                
             </div>
@@ -85,7 +83,9 @@
     </div>
    </div> 
     </div>
-
+    <script src="../js/layout.js"></script>
+    <script src="../js/requests.js"></script>
+    <script src="../js/form.js"></script>
    
 
 </body>
