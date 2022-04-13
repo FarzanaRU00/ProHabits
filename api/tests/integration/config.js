@@ -1,4 +1,4 @@
-const request = require('jest');
+const request = require('supertest');
 const fs = require("fs");
 const {Pool} = require('pg')
 const app = require('../../server')
@@ -12,7 +12,7 @@ const resetTestDb = () => {
             await db.query(testSeed)
             resolve('Test database reset')
         } catch (error) {
-            reject(`Test database could not be rest: ${err} in ${err.file}`)
+            reject(`Test database could not be reset: ${err} in ${err.file}`)
         };
     });
 }

@@ -1,6 +1,5 @@
 const habitsController = require('../../../controllers/habits');
 const Habit = require('../../../models/Habit');
-const Habits = require('../../../models/Habit');
 
 const mockSend = jest.fn();
 const mockJson = jest.fn();
@@ -16,48 +15,42 @@ describe('habits controller', () => {
 
     describe('index', () => {
         test('it returns habits with a status code of 200', async () => {
+            let testHabits = ['habit1', 'habit2']
             jest.spyOn(Habit, 'all', 'get')
-                .mockResolvedValue(['habit1', 'habit2'])
+                .mockResolvedValue(testHabits)
             await habitsController.index(null, mockRes);
             expect(mockStatus).toHaveBeenCalledWith(200);
-            expect(mockJson).toHaveBeenCalledWith(['habit1', 'habit2']);
+            expect(mockJson).toHaveBeenCalledWith(testHabits);
         })
     });
 
     describe('show', () => {
-        test('it returns a habit and the user with a status code of 200', async () => {
+        test('it returns a habit with a status code of 200', async () => {
+            let testHabit = {
+                user_id: 1, name: 'Test Habit 1', measurement:'ml', frequency: 5
+            }
             jest.spyOn(Habit, 'find')
-                .mockResolvedValue(new Habit({id:1, name: 'Test Habit', frequency: 3, currStreak: 3, streakEnd:, user_id:, }))
-            jest.spyOn(Habit.prototype, 'habits', 'get')
-                .mockResolvedValue(['habit1, habit2']);
-
+                .mockResolvedValue(testHabit)
+            
             const mockReq = {params: {id:1} }
             await habitsController.show(mockReq, mockRes);
             expect(mockStatus).toHaveBeenCalledWith(200)
-            expect(mockJson).toHaveBeenCalledWith({
-                id: 1,
-                name 'Test Habit',
-                habits: ['habit1', 'habit2']
-                // frequency: 3, 
-                // currStreak: 3, 
-                // streakEnd:, 
-                // user_id:
-            })
+            expect(mockJson).toHaveBeenCalledWith(new Habit(testHabit));
         })
-    })
+    });
 
     describe('create', () => {
         test('it returns a new habit was a status code of 201', async () => {
             let testHabit = {
-                id: 2,
-                name: 'Testing Second',
-                // frequency: 3, 
-                // currStreak: 3, 
-                // streakEnd:, 
-                // user_id:
+                habit_id: 1,
+                name: 'Sleep',
+                user_id: 1,
+                measurement: hours,
+                frequency: 3, 
+                created: 3
             }
             jest.spyOn(Habit, 'create')
-                .mockResolvedValue(new Habit(testHabit))
+                .mockResolvedValue(new Habit(testHabit));
 
             const mockReq = {body: testHabit}
             await habitsController.create(mockReq, mockRes)
