@@ -26,7 +26,7 @@ class User {
     }
     
     // Function to show all users 
-    static find(username){
+    static findByUsername(username){
         return new Promise (async (resolve, reject) => {
             try {
                 let result = db.query(SQL `SELECT * FROM users WHERE username = ${username};`);
