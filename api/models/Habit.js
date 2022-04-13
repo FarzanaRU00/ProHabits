@@ -45,7 +45,7 @@ class Habit {
             try{
                 const userData = await db.query(`SELECT id FROM users WHERE username = $1;`, [username])
                 let user = userData.rows[0]
-                const newHabitData = await db.query(`INSERT INTO habits (user_id, name, measurement, frequency) VALUES ($1, $2, $3, $4) RETURNING *;`,[user_id, name, measurement, frequency])
+                const newHabitData = await db.query(`INSERT INTO habits (user_id, name, measurement, frequency) VALUES ($1, $2, $3, $4) RETURNING *;`,[user.user_id, name, measurement, frequency])
                 let newHabit = new Habit(newHabitData.rows[0])
                 resolve(newHabit)
             } catch (error){
