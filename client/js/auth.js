@@ -1,7 +1,7 @@
 const loginData = document.querySelector('.loginForm');
 loginData.addEventListener('submit', requestLogin)
 
-const jwt_decode = require('jwt-decode');
+// const jwt_decode = require('jwt-decode');
 
 async function requestLogin(e){
     e.preventDefault();
@@ -67,4 +67,3 @@ function currentUser(){
     return username;
 }
 
-module.exports = {requestLogin, requestRegistration, login, logout}

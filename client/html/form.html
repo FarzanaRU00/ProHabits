@@ -9,8 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
-    <script defer src="../js/layout.js"></script>
-    <script defer src="../js/requests.js"></script>
+    >
   </head>
   <body>
     <div class="wrapper">
@@ -23,7 +22,7 @@
       </div>
       <div class="form-container">
         <div class="form-inner">
-          <form class="login">
+          <form class="login habitForm">
             <div class="field">
               <div class="dropdown">
                 <span>Habit:</span>
@@ -32,12 +31,7 @@
                 </div>
               </div>
               <input
-                name="habit"
-                class="habit"
-                type="text"
-                placeholder="E.g. water, sleep, exercise"
-                required
-              />
+                name="habit" class="habit" type="text" placeholder="E.g. water, sleep, exercise" required/>
             </div>
 
             <!-- Habit: <select name="subject" id="subject">
@@ -54,13 +48,7 @@
                   <p>What measurement does your habit take?</p>
                 </div>
               </div>
-              <input
-                name="measurement"
-                class="measurement"
-                type="text"
-                placeholder="E.g. (water) ml L, (sleep) hours"
-                required
-              />
+              <input name="measurement" class="measurement" type="text" placeholder="E.g. (water) ml L, (sleep) hours" required/>
             </div>
             <br />
             <div class="field">
@@ -70,25 +58,20 @@
                   <p>How long would you like to track for?</p>
                 </div>
               </div>
-              <input
-                name="time-frame"
-                class="time-frame"
-                type="number"
-                placeholder="E.g. 1, 28"
-                required
-              />
+              <input name="time-frame" class="time-frame"type="number" placeholder="E.g. 1, 28" required>
+                            
             </div>
             <div></div>
-            <br />
+            <br>
             <div class="field">
-              <input type="submit" value="Save habit" />
-            </div>
-            <div class="habits">
-              <ul class="habit-list">
-                <li>No new habits saved...</li>
-              </ul>
+                <input type="submit" value="Save habit">
             </div>
           </form>
+          <section class="main-grid post-hide hidden">
+            <h1 class="post-name"></h1>
+            <h3 class="post-measurement"></h3>
+            <p class="post-frequency"></p>
+          </section>
         </div>
 
         <div class="nav-body">
@@ -117,5 +100,8 @@
         </div>
       </div>
     </div>
+    
+    <script src="../js/layout.js"></script>
+    <script src="../js/form.js"></script
   </body>
 </html>

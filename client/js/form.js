@@ -27,11 +27,10 @@ async function getHabitById(habit_id){
 
 }
 
-
 async function createHabit(e) {
   e.preventDefault();
   try {
-    const options = {
+    const options = {  
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -40,6 +39,7 @@ async function createHabit(e) {
         frequency: e.target.frequency.value
       })
     };
+    console.log('function not called')
     const response = await fetch(`http://localhost:3000/habits`, options);
     const habit = await response.json();
     // id = habit.habit_id;
