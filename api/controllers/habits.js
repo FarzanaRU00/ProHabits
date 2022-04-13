@@ -23,7 +23,7 @@ async function showHabit (req, res) {
 // Create a habit
 async function createHabit (req, res) {
     try {
-        const habits = await Habit.create(req.body)
+        const habits = await Habit.create(...req.body, username)
         res.status(201).json(habits)
     } catch (error) {
         res.status(422).send({error})
