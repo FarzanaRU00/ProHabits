@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../models/User');
 
+
 async function register (req, res) {
     try {
         // console.log(req.body.username)
@@ -18,6 +19,7 @@ async function register (req, res) {
         res.status(500).json({err});
     }
 }
+
 
 async function login (req, res) {
     try {

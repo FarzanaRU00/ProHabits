@@ -1,56 +1,64 @@
+const loginData = document.querySelector('.loginForm');
+loginData.addEventListener('submit', requestLogin)
+
+
 async function requestLogin(e){
     e.preventDefault();
+    console.log('function call')
+    const formData = new FormData(loginData)
+    const formDataObj = Object.fromEntries(formData)
+    delete formDataObj['confirmPassword']
+    delete formDataObj['email']
+    console.log(formDataObj)
     try {
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
+            body: JSON.stringify(formDataObj)
         }
         const r = await fetch(`http://localhost:3000/auth/login`, options)
-        const data = await r.json();
-    if (!data.success) {
-      throw new Error("Login not authorised");
+        const data = await r.json()
+        console.log(data)
+        // if (data.err){ throw Error(data.err); }
+        // login(data);
+    } catch (err) {
+        console.warn(`Error data cannot be sent`);
     }
-    login(data.token);
-  } catch (err) {
-    console.warn(err);
-  }
-
 }
+
+const regData = document.querySelector('.signupForm')
+regData.addEventListener('submit', requestRegistration)
 
 async function requestRegistration(e) {
     e.preventDefault();
+    console.log('function call')
+    const formData = new FormData(regData)
+    const formDataObj = Object.fromEntries(formData)
+    console.log(formDataObj) 
     try {
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
-        }
+            body: JSON.stringify(formDataObj)
+        };
         const r = await fetch(`http://localhost:3000/auth/register`, options)
         const data = await r.json()
-        if (data.err){ throw Error(data.err) }
-        requestLogin(e);
+        console.log(data)
+        // if (data.err){ throw Error(data.err) }
+        // requestLogin(e);
     } catch (err) {
         console.warn(err);
     }
 }
 
-// function login(data){
-//     localStorage.setItem('username', data.user);
-//     location.hash = '#feed';
-// }
-
-function login(token) {
-    const user = jwt_decode(token);
-    localStorage.setItem("token", token);
-    localStorage.setItem("username", user.username);
-    localStorage.setItem("userID", user.userID);
-    window.location.hash = "#habit";
+function login(data){
+    localStorage.setItem('username', data.user);
+    location.hash = '#feed';
 }
 
 function logout(){
     localStorage.clear();
-    window.location.hash = '#login';
+    location.hash = '#login';
 }
 
 function currentUser(){
@@ -58,4 +66,4 @@ function currentUser(){
     return username;
 }
 
-module.exports = {currentUser, logout, login, requestRegistration, requestLogin};
+// module.exports = {currentUser, logout, login, requestRegistration, requestLogin};
