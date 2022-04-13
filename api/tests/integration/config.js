@@ -1,4 +1,4 @@
-const request = require('supertest');
+const request = require('jest');
 const fs = require("fs");
 const {Pool} = require('pg')
 const app = require('../../server')
