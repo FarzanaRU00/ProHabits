@@ -17,26 +17,12 @@ async function requestLogin(e){
             body: JSON.stringify(formDataObj)
         }
         const r = await fetch(`http://localhost:3000/auth/login`, options)
-<<<<<<< HEAD
-<<<<<<< HEAD:client/auth.js
-        const data = await r.json()
-        if (data.err){ throw Error(data.err); }
-        login(data.token);
-    } catch (err) {
-        console.warn(`Error: ${err}`);
-=======
-        const data = await r.json();
-    if (!data.success) {
-      throw new Error("Login not authorised");
->>>>>>> c39a09cc29e7c8871ef420e9db1521c8f9dad263:client/js/auth.js
-=======
         const data = await r.json()
         console.log(data)
         // if (data.err){ throw Error(data.err); }
         // login(data);
     } catch (err) {
         console.warn(`Error data cannot be sent`);
->>>>>>> 1b27eb25f50bcdd4654ae57990f91b247b8c8c55
     }
 }
 
@@ -65,30 +51,17 @@ async function requestRegistration(e) {
     }
 }
 
-// function login(data){
-//     localStorage.setItem('username', data.user);
-//     location.hash = '#feed';
-// }
-
-function login(token) {
-    const user = jwt_decode(token);
-    localStorage.setItem("token", token);
-    localStorage.setItem("username", user.username);
-    localStorage.setItem("userID", user.userID);
-    window.location.hash = "#habit";
+function login(data){
+    localStorage.setItem('username', data.user);
+    location.hash = '#feed';
 }
 
 function logout(){
     localStorage.clear();
-    window.location.hash = '#login';
+    location.hash = '#login';
 }
 
 function currentUser(){
     const username = localStorage.getItem('username')
     return username;
 }
-
-<<<<<<< HEAD
-module.exports = {currentUser, logout, login, requestRegistration, requestLogin};
-=======
->>>>>>> 1b27eb25f50bcdd4654ae57990f91b247b8c8c55
