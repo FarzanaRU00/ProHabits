@@ -1,22 +1,22 @@
 {
   "name": "api",
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+        "/node_modules/"
+    ]
+},
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
+"scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
     "seedDev": "node dbConfig/seedDev.js",
     "test": "jest --setupFiles ./tests/integration/config.js --watchAll --detectOpenHandles --runInBand --verbose",
     "unitTests": "jest --testPathPattern=/unit/ --watchAll --verbose",
     "coverage": "jest --testPathPattern=/unit/ --coverage"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  },
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
