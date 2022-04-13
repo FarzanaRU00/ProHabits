@@ -9,6 +9,7 @@ class User {
     constructor(data){
         this.id = data.id
         this.username = data.username
+        this.email = data.email
         this.password_digest = data.password_digest
     }
 
@@ -29,7 +30,9 @@ class User {
     static findByUsername(username){
         return new Promise (async (resolve, reject) => {
             try {
+                console.log(username)
                 let result = db.query(SQL `SELECT * FROM users WHERE username = ${username};`);
+                console.log('working')
                 const user = new User(result.rows[0]);
                 resolve(user);
             } catch (error){
@@ -39,13 +42,13 @@ class User {
     }
 
     // Function to make a new user
-    static create({ username, password }) {
+    static create({ username, email, password }) {
         return new Promise(async (resolve, reject) => {
             try {
-                console.log(username, password)
-                let userData = await db.query(`INSERT INTO users (username, password_digest) VALUES ($1,$2) RETURNING *;`, [username, password])
+                // console.log(username, email, password)
+                let userData = await db.query(`INSERT INTO users (username, email, password_digest) VALUES ($1,$2,$3) RETURNING *;`, [username, email, password])
                 // if(!result.rows[0]) throw new Error("Username Already Exists")
-                console.log('working 3')
+                // console.log('working 3')
                 console.log(userData.rows[0])
                 const user = new User(userData.rows[0]);
                 resolve(user);
