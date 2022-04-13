@@ -3,10 +3,9 @@ const router = express.Router();
 const habitsController = require('../controllers/habits')
 
 
-router.get('/', habitsController.getAllHabits)
-router.get('/:habit_id', habitsController.showHabit)
+router.get('/', habitsController.index)
+router.get('/:id', habitsController.show)
+router.post('/', habitsController.create)
 router.post('/', habitsController.createHabit)
-
-
 
 module.exports = router;
