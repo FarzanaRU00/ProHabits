@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
-    <script defer src="../js/index.js"></script>
-    <script defer src="../js/auth.js"></script>
-    <script defer src="../js/content.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <title> ProHabits </title>
 </head>
 <body>
+    <nav></nav>
+    <main>
     <div class="wrapper">
         <h1 id="title">ProHabits</h1>
         <div class="title-text">
@@ -26,12 +26,12 @@
                    <div class="slide-tab"></div>  
                 </div>
                 <div class="form-inner">
-                    <form class="login">
+                    <form class="loginForm login">
                         <div class="field">
-                            <input type="text" placeholder="Username" required>
+                            <input name="username" type="text" placeholder="Username" required>
                         </div>
                         <div class="field">
-                            <input type="password" placeholder="Password" required>
+                            <input name="password" type="password" placeholder="Password" required>
                         </div>
                         <div class="pass-link"><a href="#">Forgot Password</a></div>
                         <div class="field">
@@ -39,15 +39,15 @@
                         </div>
                         <div class="signup-link">Not a member? <a  id="create-link"href="#">Create account</a></div>
                 </form>
-                <form action="#" class="signup">
+                <form class="signup signupForm">
                     <div class="field">
-                        <input type="text" placeholder="Email Address" required>
+                        <input name="username" type="text" placeholder="Username" required>
                     </div>
                     <div class="field">
-                        <input type="text" placeholder="Username" required>
+                        <input type="text" placeholder="Email" required>
                     </div>
                     <div class="field">
-                        <input type="password" placeholder="Password" required>
+                        <input name="password" type="password" placeholder="Password" required>
                     </div>
                     <div class="field">
                         <input type="password" placeholder=" Confirm password" required>
@@ -58,8 +58,24 @@
             </form>
 
             </div>
+            <div class="nav-body">
+                <ul class="menus">
+                    <div class="slider"></div>
+                    <li><a href="form.html"><i class="fas fa-plus"></i><span>Add</span></a></li>
+                    <li><a href="viewAll.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i><span>Profile</span></a></li>
+                    <li><a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Log out</span></a></li>
+                </ul>  
+                </div>
         </div>
     </div>
-</body>
-</html>
+</main>
 
+    <script src='../js/auth.js'></script>
+    <script src='../js/requests.js'></script>
+    <script src='../js/index.js'></script>
+    <script src='../js/layout.js'></script>
+    <script src='../js/content.js'></script>
+ </body>
+</html>
+ 
