@@ -27,7 +27,7 @@ describe('users controller', () => {
                 id: 1, username: 'Test Username',
                 password_digest: 'testing'
             }
-            jest.spyOn(User, 'find')
+            jest.spyOn(User, 'findByUsername')
                 .mockResolvedValue(new User(testUser));
 
             const mockReq = {params: {id:1} }
