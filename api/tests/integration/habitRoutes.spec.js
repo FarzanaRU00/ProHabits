@@ -85,8 +85,3 @@ describe("POST /", () => {
         request(api).post("/habits/").expect(200, done);
     });
 })
-<<<<<<< HEAD
-=======
-
-// DELETE
->>>>>>> 6668e09560480e284044713eaf6f25c9409fbd54
