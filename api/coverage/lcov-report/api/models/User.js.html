@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">44.82% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/28</span>
+                <span class='fraction'>13/29</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40.74% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/27</span>
+                <span class='fraction'>12/28</span>
             </div>
         
             
@@ -127,7 +127,10 @@
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -136,6 +139,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -161,20 +165,22 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -202,6 +208,7 @@ class User {
     constructor(data){
         this.id = data.id
         this.username = data.username
+        this.email = data.email
         this.password_digest = data.password_digest
     }
 &nbsp;
@@ -222,7 +229,9 @@ class User {
 <span class="fstat-no" title="function not covered" >    st</span>atic findByUsername(username){
 <span class="cstat-no" title="statement not covered" >        return new Promise (<span class="fstat-no" title="function not covered" >as</span>ync (resolve, reject) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >            try {</span>
+<span class="cstat-no" title="statement not covered" >                console.log(username)</span>
                 let result = <span class="cstat-no" title="statement not covered" >db.query(SQL `SELECT * FROM users WHERE username = ${username};`);</span>
+<span class="cstat-no" title="statement not covered" >                console.log('working')</span>
                 const user = <span class="cstat-no" title="statement not covered" >new User(result.rows[0]);</span>
 <span class="cstat-no" title="statement not covered" >                resolve(user);</span>
             } catch (error){
@@ -232,13 +241,13 @@ class User {
     }
 &nbsp;
     // Function to make a new user
-<span class="fstat-no" title="function not covered" >    st</span>atic create({ username, password }) {
+<span class="fstat-no" title="function not covered" >    st</span>atic create({ username, email, password }) {
 <span class="cstat-no" title="statement not covered" >        return new Promise(<span class="fstat-no" title="function not covered" >as</span>ync (resolve, reject) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >            try {</span>
-<span class="cstat-no" title="statement not covered" >                console.log(username, password)</span>
-                let userData = <span class="cstat-no" title="statement not covered" >await db.query(`INSERT INTO users (username, password_digest) VALUES ($1,$2) RETURNING *;`, [username, password])</span>
+                // console.log(username, email, password)
+                let userData = <span class="cstat-no" title="statement not covered" >await db.query(`INSERT INTO users (username, email, password_digest) VALUES ($1,$2,$3) RETURNING *;`, [username, email, password])</span>
                 // if(!result.rows[0]) throw new Error("Username Already Exists")
-<span class="cstat-no" title="statement not covered" >                console.log('working 3')</span>
+                // console.log('working 3')
 <span class="cstat-no" title="statement not covered" >                console.log(userData.rows[0])</span>
                 const user = <span class="cstat-no" title="statement not covered" >new User(userData.rows[0]);</span>
 <span class="cstat-no" title="statement not covered" >                resolve(user);</span>
@@ -262,7 +271,7 @@ module.exports = User;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Apr 13 2022 16:49:59 GMT+0100 (British Summer Time)
+                at Thu Apr 14 2022 08:49:39 GMT+0100 (British Summer Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
