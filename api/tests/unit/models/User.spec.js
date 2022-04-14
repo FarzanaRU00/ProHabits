@@ -28,21 +28,21 @@ describe('User', () => {
 
     describe('find', () => {
         test('it resolves with user on successful database query', async() => {
-            let userData = { id: 1, username: 'Test' }
+            let userData = { username: 'Test', email: 'testing@gmail.com', password_digest: 'testingpassword'}
             jest.spyOn(db, 'query')
                 .mockResolvedValueOnce({rows: [userData] });
-            const result = await User.findById(1);
+            const result = await User.findByUsername(1);
             expect(result).toBeInstanceOf(User)
         })
     });
 
     describe('create', () => {
         test('it resolves with user on successful database query', async () => {
-            let userData = { username: 'Test User', password_digest: 'password123' }
+            let userData = { username: 'Test', email: 'testing@gmail.com', password_digest: 'testingpassword' }
             jest.spyOn(db, 'query')
                 .mockResolvedValueOnce({rows: [ { ...userData, id: 1 }] });
             jest.spyOn(Habit, 'findOrCreateByName')
-                .mockResolvedValueOnce(new Habit({id: 1, name: 'Test Habit'}));
+                .mockResolvedValueOnce(new Habit({user_id: 1, name: 'Test Habit 1', measurment: 'ml', frequency: 5}));
             const result = await User.create(userData);
             expect(result).toHaveProperty('id')
         })

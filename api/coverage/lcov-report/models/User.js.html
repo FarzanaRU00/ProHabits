@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.96% </span>
+                <span class="strong">68.96% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/27</span>
+                <span class='fraction'>20/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64% </span>
+                <span class="strong">67.85% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/25</span>
+                <span class='fraction'>19/28</span>
             </div>
         
             
@@ -117,14 +117,33 @@
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -140,6 +159,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -152,9 +174,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -171,32 +197,41 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const db = require('../dbConfig/init');
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @jest-environment jsdom
+ */
+&nbsp;
+const db = require('../dbConfig/init');
 const SQL = require('sql-template-strings');
 &nbsp;
 class User {
     constructor(data){
         this.id = data.id
         this.username = data.username
+        this.email = data.email
         this.password_digest = data.password_digest
     }
 &nbsp;
+    // Function to get all users
     static get all() {
         return new Promise(async (resolve, reject) =&gt; {
           try {
             const result = await db.query(SQL`SELECT * FROM users;`);
             const users = result.rows.map(r =&gt; new User(r));
             resolve(users);
-          } catch (err) {
+          } catch (error) {
 <span class="cstat-no" title="statement not covered" >            reject(`Could not retrieve users: ${error}`);</span>
           }
         })
     }
-&nbsp;
-    static find(username){
+    
+    // Function to show all users 
+    static findByUsername(username){
         return new Promise (async (resolve, reject) =&gt; {
             try {
-                const result = db.query(SQL `SELECT * FROM users WHERE username = ${username};`);
+                console.log(username)
+                let result = db.query(SQL `SELECT * FROM users WHERE username = ${username};`);
+                console.log('working')
                 const user = new User(result.rows[0]);
 <span class="cstat-no" title="statement not covered" >                resolve(user);</span>
             } catch (error){
@@ -205,12 +240,16 @@ class User {
         })
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    st</span>atic create({ username, password }) {
+    // Function to make a new user
+<span class="fstat-no" title="function not covered" >    st</span>atic create({ username, email, password }) {
 <span class="cstat-no" title="statement not covered" >        return new Promise(<span class="fstat-no" title="function not covered" >as</span>ync (resolve, reject) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >            try {</span>
-                const result = <span class="cstat-no" title="statement not covered" >await db.query(SQL`INSERT INTO users (username, password_digest) VALUES (${username},${password}) RETURNING *;`)</span>
-<span class="cstat-no" title="statement not covered" >                if(!result.rows[0]) <span class="cstat-no" title="statement not covered" >throw new Error("Username Already Exists")</span></span>
-                const user = <span class="cstat-no" title="statement not covered" >new User(result.rows[0]);</span>
+                // console.log(username, email, password)
+                let userData = <span class="cstat-no" title="statement not covered" >await db.query(`INSERT INTO users (username, email, password_digest) VALUES ($1,$2,$3) RETURNING *;`, [username, email, password])</span>
+                // if(!result.rows[0]) throw new Error("Username Already Exists")
+                // console.log('working 3')
+<span class="cstat-no" title="statement not covered" >                console.log(userData.rows[0])</span>
+                const user = <span class="cstat-no" title="statement not covered" >new User(userData.rows[0]);</span>
 <span class="cstat-no" title="statement not covered" >                resolve(user);</span>
             } catch (error) {
 <span class="cstat-no" title="statement not covered" >                reject(`Could not create user: ${error}`);</span>
@@ -232,7 +271,7 @@ module.exports = User;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Apr 11 2022 22:29:54 GMT+0100 (British Summer Time)
+                at Thu Apr 14 2022 10:42:52 GMT+0100 (British Summer Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

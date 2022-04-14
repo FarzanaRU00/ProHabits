@@ -20,7 +20,7 @@ describe("GET /", () => {
     });
   
     test("responds with error message", (done) => {
-      request(api).get("/users/").expect({ err: "error" }, done);
+      request(api).get("/users/").expect({ err: 'Could not retrieve users: Error: connect ECONNREFUSED 127.0.0.1:5432'}, done);
     });
   
     test("responds with json", (done) => {
