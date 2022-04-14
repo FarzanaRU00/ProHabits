@@ -28,7 +28,6 @@ describe('index.html', () => {
 });
 
 
-
 // describe('index.html' () => {
 //     beforeEach(() => {
 //         document.documentElement.innerHTML = html.toString();

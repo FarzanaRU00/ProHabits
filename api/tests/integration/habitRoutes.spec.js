@@ -7,7 +7,7 @@ describe("GET /", () => {
         await resetTestDb();
     });
     beforeAll(async () => {
-        api = app.listen(5000, () => {
+        api = app.listen(5007, () => {
             console.log("test server is running on port 5000")
         })
     })
@@ -29,7 +29,7 @@ describe("GET /:id", () => {
         await resetTestDb();
     });
     beforeAll(async () => {
-        api = app.listen(5000, () => {
+        api = app.listen(5007, () => {
             console.log("test server is running on port 5000!")
         })
     })
@@ -70,7 +70,7 @@ describe("POST /", () => {
 
     beforeAll(async () => {
         await resetTestDb();
-        api = app.listen(5000, () => {
+        api = app.listen(5007, () => {
             console.log("Test server is running on port 5000!")
         });
     });
@@ -84,3 +84,5 @@ describe("POST /", () => {
         request(api).post("/habits/").expect(200, done);
     });
 })
+
+// DELETE
