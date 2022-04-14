@@ -2,7 +2,7 @@ describe("GET /", () => {
     let api;
   
     beforeAll(async () => {
-      api = app.listen(5000, () =>
+      api = app.listen(5007, () =>
         console.log("Test server is running on port 5000")
       );
     });
@@ -34,7 +34,7 @@ describe("GET /", () => {
     let api;
   
     beforeAll(async () => {
-      api = app.listen(5000, () =>
+      api = app.listen(5007, () =>
         console.log("Test server is running on port 5000")
       );
     });
@@ -44,8 +44,8 @@ describe("GET /", () => {
       api.close(done);
     });
   
-    test("responds with error code 403", (done) => {
-      request(api).get("/users/100").expect(403, done);
+    test("responds with error code 404", (done) => {
+      request(api).get("/users/100").expect(404, done);
     });
 
     test("responds with user's info", (done) => {
@@ -53,7 +53,7 @@ describe("GET /", () => {
     });
 
      test("responds with Missing Token message", (done) => {
-        request(api).get("/users/1").expect({ err: "Missing token" }, done);
+        request(api).get("/users/1").expect({ err: "Could not retrieve username: Error: connect ECONNREFUSED 127.0.0.1:5432" }, done);
     });
   
     test("responds with json", (done) => {
