@@ -31,9 +31,10 @@ class User {
         return new Promise (async (resolve, reject) => {
             try {
                 console.log(username)
-                let result = db.query(SQL `SELECT * FROM users WHERE username = ${username};`);
+                let result = await db.query(`SELECT * FROM users WHERE username = $1;`, [ username ]);
                 console.log('working')
                 const user = new User(result.rows[0]);
+                console.log('working now')
                 resolve(user);
             } catch (error){
                 reject (`Could not retrieve username: ${error}`)
