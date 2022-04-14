@@ -44,8 +44,8 @@ describe("GET /", () => {
       api.close(done);
     });
   
-    test("responds with error code 403", (done) => {
-      request(api).get("/users/100").expect(403, done);
+    test("responds with error code 404", (done) => {
+      request(api).get("/users/100").expect(404, done);
     });
 
     test("responds with user's info", (done) => {

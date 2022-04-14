@@ -41,8 +41,8 @@ describe('User', () => {
             let userData = { username: 'Test', email: 'testing@gmail.com', password_digest: 'testingpassword' }
             jest.spyOn(db, 'query')
                 .mockResolvedValueOnce({rows: [ { ...userData, id: 1 }] });
-            jest.spyOn(Habit, 'findOrCreateByName')
-                .mockResolvedValueOnce(new Habit({user_id: 1, name: 'Test Habit 1', measurment: 'ml', frequency: 5}));
+            jest.spyOn(Habit, 'create')
+                .mockResolvedValueOnce(new Habit({user_id: 1, name: 'Test Habit 1', measurement: 'ml', frequency: 5}));
             const result = await User.create(userData);
             expect(result).toHaveProperty('id')
         })

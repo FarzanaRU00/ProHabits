@@ -4,8 +4,9 @@ const { request } = require("../../server");
 describe("GET /", () => {
     let api;
     beforeAll(async () => {
-        await resetTestDb();
+        await resetTestDB();
     });
+
     beforeAll(async () => {
         api = app.listen(5000, () => {
             console.log("test server is running on port 5000")
