@@ -1,23 +1,27 @@
-const request = require('supertest');
-const fs = require("fs");
-const {Pool} = require('pg')
-const app = require('../../server')
+const { Pool } = require('pg');
+const fs = require('fs');
 
+const request = require('supertest');
+const apiServer = require('../../server');
+
+// import reset query
 const testSeed = fs.readFileSync(__dirname + '/test_seeds.sql').toString();
 
+// enable resetting of db between tests
 const resetTestDb = () => {
-    return new Promise (async (resolve, reject) => {
+    return new Promise (async (res, rej) => {
         try {
             const db = new Pool();
             await db.query(testSeed)
-            resolve('Test database reset')
-        } catch (error) {
-            reject(`Test database could not be reset: ${err} in ${err.file}`)
-        };
-    });
+            res('Test DB reset')
+        } catch (err) {
+            rej('Could not reset TestDB')
+        }
+    })
 }
 
-global.request = request;
-global.app = app;
-global.resetTestDb = resetTestDb;
+// make these things available to test suites
+global.request = request 
+global.app = apiServer
+global.resetTestDb = resetTestDb
 global.port = process.env.PORT || 5000;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1649864999272" clover="3.2.0">
-  <project timestamp="1649864999272" name="All files">
-    <metrics statements="164" coveredstatements="63" conditionals="12" coveredconditionals="0" methods="30" coveredmethods="5" elements="206" coveredelements="68" complexity="0" loc="164" ncloc="164" packages="6" files="11" classes="11"/>
+<coverage generated="1649922579935" clover="3.2.0">
+  <project timestamp="1649922579935" name="All files">
+    <metrics statements="183" coveredstatements="68" conditionals="12" coveredconditionals="0" methods="33" coveredmethods="6" elements="228" coveredelements="74" complexity="0" loc="183" ncloc="183" packages="6" files="11" classes="11"/>
     <package name="api">
       <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="server.js" path="/Users/farzana/ProHabits/api/server.js">
@@ -22,9 +22,9 @@
       </file>
     </package>
     <package name="api.controllers">
-      <metrics statements="58" coveredstatements="12" conditionals="8" coveredconditionals="0" methods="9" coveredmethods="1"/>
+      <metrics statements="75" coveredstatements="15" conditionals="8" coveredconditionals="0" methods="12" coveredmethods="2"/>
       <file name="auth.js" path="/Users/farzana/ProHabits/api/controllers/auth.js">
-        <metrics statements="27" coveredstatements="5" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <metrics statements="31" coveredstatements="5" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -39,43 +39,60 @@
         <line num="19" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="27" count="0" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
       </file>
       <file name="habits.js" path="/Users/farzana/ProHabits/api/controllers/habits.js">
-        <metrics statements="21" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
+        <metrics statements="34" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="41" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="68" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="76" count="2" type="stmt"/>
       </file>
       <file name="users.js" path="/Users/farzana/ProHabits/api/controllers/users.js">
         <metrics statements="10" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -95,9 +112,9 @@
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="init.js" path="/Users/farzana/ProHabits/api/dbconfig/init.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="17" count="4" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
       </file>
     </package>
     <package name="api.middleware">
@@ -117,10 +134,10 @@
       </file>
     </package>
     <package name="api.models">
-      <metrics statements="60" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="18" coveredmethods="4"/>
+      <metrics statements="61" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="18" coveredmethods="4"/>
       <file name="Habit.js" path="/Users/farzana/ProHabits/api/models/Habit.js">
         <metrics statements="33" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
@@ -152,41 +169,42 @@
         <line num="61" count="0" type="stmt"/>
         <line num="62" count="0" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
-        <line num="70" count="2" type="stmt"/>
+        <line num="70" count="3" type="stmt"/>
       </file>
       <file name="User.js" path="/Users/farzana/ProHabits/api/models/User.js">
-        <metrics statements="27" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="4"/>
+        <metrics statements="28" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="4"/>
         <line num="5" count="3" type="stmt"/>
         <line num="6" count="3" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
         <line num="12" count="3" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
-        <line num="64" count="3" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="67" count="3" type="stmt"/>
       </file>
     </package>
     <package name="api.routes">
-      <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="auth.js" path="/Users/farzana/ProHabits/api/routes/auth.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -197,23 +215,24 @@
         <line num="8" count="1" type="stmt"/>
       </file>
       <file name="habits.js" path="/Users/farzana/ProHabits/api/routes/habits.js">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
       </file>
       <file name="users.js" path="/Users/farzana/ProHabits/api/routes/users.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
       </file>
     </package>

@@ -32,7 +32,7 @@ describe("GET /:id", () => {
         .expect(
             [
                 {   
-                    habitId: 1,
+                    userId: 1,
                     name: "water",
                     frequency: "2",
                     measurement: "liters"

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.51% </span>
+                <span class="strong">16.12% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/27</span>
+                <span class='fraction'>5/31</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.51% </span>
+                <span class="strong">16.12% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/27</span>
+                <span class='fraction'>5/31</span>
             </div>
         
             
@@ -116,7 +116,12 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -144,13 +149,18 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -183,8 +193,8 @@ async function <span class="fstat-no" title="function not covered" >register </s
         const salt = <span class="cstat-no" title="statement not covered" >await bcrypt.genSalt();</span>
         const hashed = <span class="cstat-no" title="statement not covered" >await bcrypt.hash(req.body.password, salt)</span>
 <span class="cstat-no" title="statement not covered" >        console.log('working')</span>
-        const result = <span class="cstat-no" title="statement not covered" >await User.create({...req.body, password: hashed})</span>
-<span class="cstat-no" title="statement not covered" >        console.log('wokring 2')</span>
+<span class="cstat-no" title="statement not covered" >        await User.create({...req.body, password: hashed})</span>
+<span class="cstat-no" title="statement not covered" >        console.log('working 2')</span>
 <span class="cstat-no" title="statement not covered" >        res.status(201).json({username :result.username, id : result.id})</span>
     } catch (err) {
 <span class="cstat-no" title="statement not covered" >        res.status(500).json({err});</span>
@@ -193,17 +203,22 @@ async function <span class="fstat-no" title="function not covered" >register </s
 &nbsp;
 &nbsp;
 async function <span class="fstat-no" title="function not covered" >login </span>(req, res) {
+<span class="cstat-no" title="statement not covered" >    console.log('hi')</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
         const user = <span class="cstat-no" title="statement not covered" >await User.findByUsername(req.body.username)</span>
+<span class="cstat-no" title="statement not covered" >        console.log('hi')</span>
 <span class="cstat-no" title="statement not covered" >        if(!user){ </span>
 <span class="cstat-no" title="statement not covered" >            throw new Error('No user with this username') </span>
         };
-        const authed = <span class="cstat-no" title="statement not covered" >bcrypt.compare(req.body.password, user.passwordDigest)</span>
+<span class="cstat-no" title="statement not covered" >        console.log(username)</span>
+        const authed = <span class="cstat-no" title="statement not covered" >bcrypt.compare(req.body.password, user.passwordDigest, user.email)</span>
 <span class="cstat-no" title="statement not covered" >        if (!!authed){</span>
             const payload = <span class="cstat-no" title="statement not covered" >{ </span>
                 username: user.username, 
-                id: user.id 
+                id: user.id ,
+                email: user.email
             };
+<span class="cstat-no" title="statement not covered" >            console.log(bye)</span>
             const sendToken = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>rr, token) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >                if(err)</span>
                 {<span class="cstat-no" title="statement not covered" >throw new Error('Error in token generation') </span>}
@@ -229,7 +244,7 @@ module.exports = { register, login };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Apr 13 2022 16:49:59 GMT+0100 (British Summer Time)
+                at Thu Apr 14 2022 08:49:39 GMT+0100 (British Summer Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
